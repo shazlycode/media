@@ -1,6 +1,12 @@
 {% extends 'app/main.html' %}
 {% block content %}
+{% for tv in tvs %}
+<h3>{{tv.tv_name}}</h3>
+<h4>{{tv.tv_cat}}</h4>
+<img src="{{tv.tv_img.url}}" alt="">
 
+
+{% endfor %}
 
 
 

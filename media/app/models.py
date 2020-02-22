@@ -6,3 +6,9 @@ class TV(models.Model):
     tv_cat= models.CharField(max_length=100)
     tv_link=models.CharField(max_length=300)
     tv_img=models.ImageField(default='logo.jpg', upload_to='tvlogo')
+
+    def __str__(self):
+        return self.tv_name
+
+    class Meta():
+        ordering=('-tv_name',)
