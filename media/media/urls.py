@@ -22,6 +22,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
-    path('player/<int:channel_id>', views.player, name='player'),
+    path('player/<int:channel_id>', views.ChannelPlayer, name='player'),
+    path('radio', views.radio, name='radio'),
+    path('rplayer/<int:radio_id>', views.RadioPlayer, name='radioplayer'),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
