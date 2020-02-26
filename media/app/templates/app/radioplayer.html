@@ -6,10 +6,17 @@
 <div class="title"><h3>{{radioitem.radio_name}}</h3></div>
 
 <div><audio controls>
-  <source src="{{radioitem.radio_link}}" type="audio/ogg">
-  <source src="{{radioitem.radio_link}}" type="audio/mpeg">
+  <!-- <source src="{{radioitem.radio_link}}" type="audio/ogg"> -->
+  <source src="https://{{radioitem.radio_link}}" type="audio/mpeg">
 Your browser does not support the audio element.
 </audio></div>    
+<div>
+    <audio controls='controls'>
+                <!-- <source src="{{track.source.url}}"> -->
+                <!-- <source src="{{radioitem.radio_link}}"> -->
+                <source src="https://{{radioitem.radio_link}}">
+            </audio>
+</div>
 </div>
 </div>
 
