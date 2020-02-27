@@ -27,8 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-SECURE_SSL_REDIRECT = False
-os.environ['HTTP'] = "on"
+
 # Application definition
 
 INSTALLED_APPS = [
