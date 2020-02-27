@@ -5,11 +5,13 @@ def index(request):
     tvsdrama=TV.objects.filter(tv_cat="drama")
     tvssport=TV.objects.filter(tv_cat="sport")
     tvsnews=TV.objects.filter(tv_cat="news")
+    tvsrel=TV.objects.filter(tv_cat="rel")
     context={
         "title":"HOME",
         'tvsdrama':tvsdrama,
         'tvssport':tvssport,
         'tvsnews':tvsnews,
+        'tvsrel':tvsrel,
     }
     return render(request, 'app/index.html', context)
 

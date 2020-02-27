@@ -18,7 +18,7 @@ class TV(models.Model):
         super().save(*args, **kwargs)
         img=Image.open(self.tv_img.path)
         if img.width> 300 or img.height> 300:
-            img.thumbnail(300,300)
+            img.thumbnail((300,300))
             img.save(self.tv_img.path)
 
     
