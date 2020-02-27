@@ -42,5 +42,5 @@ class Radio(models.Model):
         
         img= Image.open(self.radio_img.path)
         if img.width> 300 or img.height> 300:
-            img.thumbnail(300,300)
+            img.thumbnail((300,300))
             img.save(self.radio_img.path)
