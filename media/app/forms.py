@@ -28,3 +28,9 @@ class RegisterForm(forms.ModelForm):
         return cd['password2']
 
 
+class LogForm(forms.ModelForm):
+    class Meta:
+        model=User
+        fields=('username', 'password')
+
+    

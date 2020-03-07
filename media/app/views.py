@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from app.models import TV, Radio
-from app.forms import RegisterForm
+from app.forms import RegisterForm, LogForm
 from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 def index(request):
     tvsdrama=TV.objects.filter(tv_cat="drama")
@@ -68,8 +69,24 @@ def register(request):
     return render(request, 'app/register.html', context)
 
 def log(request):
+    if request.method=='POST':
+        logform=LogForm(request.POST)
+        username=request.POST['username']
+        password=request.POST['password']
+        user=authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request,user)
+            messages.success(request,'You have successfully logedin {}'.format(username))
+            return redirect('index')
+        else:
+            messages.warning(request,'You are not registered')
+            return redirect('login')
+
+    else:
+        logform=LogForm()
     context={
         'title':'Login',
+        'logform':logform,
 
     }
     return render(request, 'app/login.html', context)

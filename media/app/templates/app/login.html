@@ -9,5 +9,9 @@
 {% endfor %}
 {%  endif %}
 
-
+<form action="" method="POST">
+{% csrf_token %}
+{{logform|crispy}}
+<input type="submit" value='Login'>
+</form>
 {% endblock content %}
