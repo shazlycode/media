@@ -21,4 +21,10 @@ class RegisterForm(forms.ModelForm):
             raise forms.ValidationError('This user is already registered')
         return cd['username']
 
+    def clean_password2(self):
+        cd= self.cleaned_data
+        if cd['password1'] != cd['password2']:
+            raise forms.ValidationError('password confirmation is not correct')
+        return cd['password2']
+
 
