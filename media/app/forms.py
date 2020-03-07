@@ -14,3 +14,11 @@ class RegisterForm(forms.ModelForm):
     password2 = forms.CharField(label=("Password confirmation"),
     widget=forms.PasswordInput,
     help_text=("Enter the same password as above, for verification."))
+
+    def clean_username(self):
+        cd=self.cleaned_data
+        if User.objects.filter(username=cd['username']).exists():
+            raise forms.ValidationError('This user is already registered')
+        return cd['username']
+
+
