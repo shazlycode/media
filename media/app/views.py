@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from app.models import TV, Radio
+from app.forms import RegisterForm
 # Create your views here.
 def index(request):
     tvsdrama=TV.objects.filter(tv_cat="drama")
@@ -41,3 +42,12 @@ def RadioPlayer(request, radio_id):
         'radioitem': item,
     }
     return render(request, 'app/radioplayer.html', context)
+
+def register(request):
+    registerform= RegisterForm()
+    context={
+        'title':'Register',
+        'registerform':registerform,
+
+    }
+    return render(request, 'app/register.html', context)

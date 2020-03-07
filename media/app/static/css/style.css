@@ -93,3 +93,13 @@ body {
 li{
     float: right;
 }
+
+li a {
+  display: block;
+  color: white;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111111;
+}
