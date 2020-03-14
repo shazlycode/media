@@ -90,3 +90,10 @@ def log(request):
 
     }
     return render(request, 'app/login.html', context)
+
+def logout_user(request):
+    logout(request)
+    context={
+        'title':'Logout',
+    }
+    return render(request, 'app/logout.html', context)

@@ -26,8 +26,8 @@ urlpatterns = [
     path('radio', views.radio, name='radio'),
     path('rplayer/<int:radio_id>', views.RadioPlayer, name='radioplayer'),
     path('register', views.register,name='register'),
-    path('login', views.log, name='login'),
-
+    path('login/', views.log, name='login'),
+    path('logout/', views.logout_user, name='logout'),
 
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
