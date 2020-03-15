@@ -28,6 +28,6 @@ urlpatterns = [
     path('register', views.register,name='register'),
     path('login/', views.log, name='login'),
     path('logout/', views.logout_user, name='logout'),
-
+    path('favorite_channel', views.favorite_channel, name='favorite_channel')
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

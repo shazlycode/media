@@ -4,6 +4,11 @@
 <div class="row">
 <div class="col-md-6">
 <div class="title"><h3>{{media.tv_name}}</h3></div>
+{% if is_favorite %}
+<div class="fav"> <a href="{% url 'favorite_channel' id=media.id %}"><i class="fas fa-heart fa-lg"></i></a> </div> 
+{% else %}
+<div class="fav"> <a href="{% url 'favorite_channel' id=media.id %}"><i class="far fa-heart fa-lg"></i></a> </div>
+{% endif %} 
 <div class="mediaplayer"><iframe width="560" height="315" src="{{media.tv_link}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
     
 </div>

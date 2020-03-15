@@ -17,7 +17,7 @@
       <div id="collapse1" class="panel-collapse collapse">
         <ul class="list-group">
         {% for tvrel in tvsrel %}
-          <li class="list-group-item"> <a class="linkr" href="{% url 'player' tvrel.id%}"><img src="{{tvrel.tv_img.url}}" alt="" width="60px" height="60px"><span> {{tvrel.tv_name}}</span></a><div class="fav"> <a href=""><i class="far fa-heart"></i></a> </div> </li>
+          <li class="list-group-item"> <a class="linkr" href="{% url 'player' tvrel.id%}"><img src="{{tvrel.tv_img.url}}" alt="" width="60px" height="60px"><span> {{tvrel.tv_name}}</span></a><div class="fav"> <a href=""><i class="far fa-heart fa-lg"></i></a> </div> </li>
           
           {% endfor %}
         </ul>

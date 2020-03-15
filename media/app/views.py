@@ -1,10 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponse, HttpResponseRedirect
 from app.models import TV, Radio
 from app.forms import RegisterForm, LogForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 def index(request):
+    
     tvsdrama=TV.objects.filter(tv_cat="drama")
     tvssport=TV.objects.filter(tv_cat="sport")
     tvsnews=TV.objects.filter(tv_cat="news")
@@ -19,10 +21,15 @@ def index(request):
     return render(request, 'app/index.html', context)
 
 def ChannelPlayer(request, channel_id):
+    is_favorite=False
     item=get_object_or_404(TV,id=channel_id)
+    if item.favorite.filter(id=request.user.id).exists():
+        is_favorite= True
+
     context={
         'title':'Channel Player',
         'media': item,
+        'is_favorite': is_favorite,
     }
     return render(request, 'app/channelplayer.html', context)
 
@@ -97,3 +104,12 @@ def logout_user(request):
         'title':'Logout',
     }
     return render(request, 'app/logout.html', context)
+
+
+def favorite_channel(request, id):
+    tv=get_object_or_404(Tv, id=id)
+    if tv.favorit.filter(id=request.user.id).exists():
+        tv.favorit.remove(request.user)
+    else:
+        tv.favorit.add(request.user)
+    return HTTPRespondRedirect(tv.get_absolute_url())
